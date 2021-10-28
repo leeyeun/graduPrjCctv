@@ -1,0 +1,11 @@
+{
+    "development" : {
+        "host" : "127.0.0.1",
+        "username" : "root",
+        "password" : "@dldhfsu0109",
+        "port" : "3305",
+        "database" : "CCTV_PRJ",
+        "dialect" : "mysql"
+    },
+    "salt" : "sdfdio134ijkljd9029dfgsdgdlg2342534lj234234i"
+}
