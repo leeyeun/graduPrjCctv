@@ -12,5 +12,8 @@ router.post('/get/store_data', controller.get.store_data);
 router.post('/delete/store', controller.delete.store);
 
 router.post('/update/store', controller.update.store);
+router.post('/update/view_cnt', controller.update.view_cnt);
+
+//router.post('/upload/image', controller.upload.image);
 
 module.exports = router;

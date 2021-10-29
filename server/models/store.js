@@ -36,6 +36,16 @@ module.exports = (sequelize, DataTypes) => {
             image: {
                 type: DataTypes.STRING(1024),
                 allowNull: true
+            },
+            view_cnt : {
+                type : DataTypes.INTEGER, 
+                allowNull : false,
+                defaultVale : 0
+            },
+            likes : {
+                type: DataTypes.INTEGER,
+                allowNull : false,
+                defaultVale : 0
             }
         },
         {

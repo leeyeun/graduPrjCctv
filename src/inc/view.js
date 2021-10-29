@@ -1,6 +1,9 @@
 import axios from "axios";
 import React,{ Component } from "react";
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHeart as solidHeart} from '@fortawesome/free-solid-svg-icons';
+import { faHeart as regularHeart } from '@fortawesome/free-regular-svg-icons';
 
 class View extends Component{
     constructor(props){
@@ -11,11 +14,13 @@ class View extends Component{
     }
 
     componentDidMount(){
-        this._getData();
+        const storeid = this.props.match.params.data;
+
+        this._getData(storeid);
+        this._addViewCnt(storeid);
     }
 
-    _getData = async function() {
-        const storeid = this.props.match.params.data;
+    _getData = async function(storeid) {
 
         const getData = await axios('/get/store_data', {
             method : 'POST',
@@ -25,6 +30,14 @@ class View extends Component{
 
         console.log(getData);
         return this.setState({ data : getData });
+    }
+    _addViewCnt = async function (storeid) {
+        await axios('/update/view_cnt', {
+            method : 'POST',
+            headers : new Headers(),
+            data : { storeid : storeid }
+        })
+
     }
 
     _removeView = async function(){
@@ -40,6 +53,9 @@ class View extends Component{
             alert('게시물이 삭제되었습니다.');
             return window.location.href = '/';
         }
+    }
+    _toggleLike = async function(){
+        alert('좋아요 버튼 클릭');
     }
     render(){
         const { data } = this.state;
@@ -73,6 +89,12 @@ class View extends Component{
                     <div>
                         <input type="text" name="image" defaultValue={data.data[0].image} readOnly/>
                     </div>
+                    <div>
+                        <input type="text" name="view_cnt" defaultValue={data.data[0].view_cnt + 1} readOnly></input>
+                    </div>
+                    <div>
+                        {/* <FontAwesomeIcon icon={solidHeart} onClick={()=> this._toggleLike()}/> */}
+                        <FontAwesomeIcon icon={regularHeart} onClick={()=> this._toggleLike()}/></div>
                     <div>
                         <Link to={modify_url}><input type="button" value="수정" /></Link>
                         <input type="button" value="삭제" onClick={() =>this._removeView()}/>

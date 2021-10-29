@@ -13,6 +13,17 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.use('/', router);
+
+
+const multer = require('multer');
+const upload = multer({dest: './upload'})
+app.get('/upload', function(req, res) {
+    res.render('upload');    
+});
+app.post('/upload', upload.single('image'), function(req, res) {
+    res.send('업로드 성공!')
+});
+
 // const {
 //     Teacher,
 //     Sequelize: { Op }
@@ -21,42 +32,42 @@ app.use('/', router);
 
 
 //조회
-app.get('/get/data', (req, res) => {
-    Teacher.findAll()
-    .then( result => { res.send(result) })
-    .catch( err => { throw err })
-}) 
-//추가
-app.post('/add/data', (req, res) => {
-    console.log(req.body)
+// app.get('/get/data', (req, res) => {
+//     Teacher.findAll()
+//     .then( result => { res.send(result) })
+//     .catch( err => { throw err })
+// }) 
+// //추가
+// app.post('/add/data', (req, res) => {
+//     console.log(req.body)
 
-      Teacher.create({
-          name : req.body.data
-      })
-      .then( result => {
-          res.send(result)
-      })
-      .catch( err => {
-          console.log(err)
-          throw err;
-      })
-}) 
-//수정
-app.post('/modify/data', (req, res) => {
-    Teacher.update({ name : req.body.modify.name }, {
-        where : { id : req.body.modify.id }
-    })
-    .then( result => { res.send(result) })
-    .catch( err => { throw err })
-})
-//삭제
-app.post('/delete/data', (req, res) => {
-    Teacher.destroy({
-        where : { id : req.body.delete.id }
-    })
-    .then( res.sendStatus(200) )
-    .catch( err => { throw err })
-})
+//       Teacher.create({
+//           name : req.body.data
+//       })
+//       .then( result => {
+//           res.send(result)
+//       })
+//       .catch( err => {
+//           console.log(err)
+//           throw err;
+//       })
+// }) 
+// //수정
+// app.post('/modify/data', (req, res) => {
+//     Teacher.update({ name : req.body.modify.name }, {
+//         where : { id : req.body.modify.id }
+//     })
+//     .then( result => { res.send(result) })
+//     .catch( err => { throw err })
+// })
+// //삭제
+// app.post('/delete/data', (req, res) => {
+//     Teacher.destroy({
+//         where : { id : req.body.delete.id }
+//     })
+//     .then( res.sendStatus(200) )
+//     .catch( err => { throw err })
+// })
 const PORT = process.env.PORT || 4000;
 app.listen(PORT, () => {
     console.log(`Server On : http://localhost:${PORT}/`)

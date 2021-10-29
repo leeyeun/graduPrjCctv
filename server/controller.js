@@ -102,6 +102,26 @@ module.exports = {
             model.update.store(body, data => {
                 res.send(true)
             })
+        },
+        view_cnt : (req, res) => {
+            const body = req.body;
+
+            model.update.view_cnt(body, result => {
+                if(result) {
+                    res.send(true);
+                }
+            })
         }
-    }
+    },
+    // upload : {
+    //     image : (req, res) => {
+    //         const body = req.body;
+    //         const image = req.file.path;
+
+    //         model.upload.store(body, image, data => {
+    //             res.send(true)
+    //         })
+    //     }
+        
+    // }
 }

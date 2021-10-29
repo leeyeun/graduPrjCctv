@@ -3,6 +3,7 @@ const sequelize = require('./models').sequelize;
 const {
     User,
     Store,
+    Like,
     Sequelize: { Op }
   } = require('./models');
 sequelize.query('SET NAMES utf8;');
@@ -55,7 +56,9 @@ module.exports = {
                 time : body.time,
                 sit : body.sit,
                 introduce : body.introduce,
-                image : body.image
+                image : body.image,
+                view_cnt : 0,
+                likes : 0,
 
             }).then(data => {
                 callback(true)
@@ -149,6 +152,21 @@ module.exports = {
             })
             .then( () => { callback(true) })
             .catch( err => { throw err; })
+        },
+        view_cnt : (body, callback) => {
+            Store.update({view_cnt : sequelize.literal('view_cnt + 1')},{
+                where : { storeid : body.storeid }
+            })
+            .then(data => {
+                callback(true)
+            })
+            .catch(err => {
+                throw err;
+            })
         }
     }
+    // upload : {
+    //     image : (body, image,  callback) => {
+    //     }
+    // }
 }

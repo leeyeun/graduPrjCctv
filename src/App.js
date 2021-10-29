@@ -82,6 +82,7 @@ class App extends Component{
         />
         <Route exact={true} path={"/login"}  component={Login}/>
         <Route exact={true} path={"/signup"}  component={Signup}/>
+        <Route exact={true} path={"/write"} component={Write}/>
         <Route exact={true} path={"/write/modify/:data"} 
               component={this._withProps(Write,{
                 _getstoreName : _getstoreName,

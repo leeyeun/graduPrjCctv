@@ -100,8 +100,9 @@ class Write extends Component{
           this.props._getModifyData(this.props.match.params.data);
         }
     }
+    
     render() {
-        const { storeName, address, number, time, sit, introduce, image} = this.props;
+        const { storeName, address, number, time, sit, introduce} = this.props;
         return(
             <div>
                 <div>

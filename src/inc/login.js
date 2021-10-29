@@ -48,9 +48,10 @@ class Login extends Component{
         if(res.data) {
     
             if(res.data.suc) {
+
               sessionStorage.setItem('login', true)
               this.setState({ login : true })
-              this._closeModal();
+              this.props._toggleModal(false)
 
               return alert('로그인 되었습니다.');
             }else{
@@ -63,10 +64,10 @@ class Login extends Component{
         return(
             <div className='login-div'>
                 <Modal 
-                    visible={this.state.visible} 
+                    visible={this.props.login_modal} 
                     width="400" height="360"
                     effect="fadeInDown" 
-                    onClickAway={() => this._closeModal()}>
+                    onClickAway={() => this.props._toggleModal(false)}>
                     <div>
                         <h4 className='acenter login_tit'> 로그인 </h4>
                         <form>
@@ -83,19 +84,12 @@ class Login extends Component{
 
                         <div className='submit_div'>
                             <div> <input type='button' value='로그인' onClick={() => this._selectUserData()}/> </div>
-                            <div> <input type='button' value='취소' onClick={() => this._closeModal()}/> </div>
+                            <div> <input type='button' value='취소' onClick={() => this.props._toggleModal(false)}/> </div>
                         </div>
                         </div>
                         </form>
                     </div>
                 </Modal>
-                {/* <form>
-                    <label>아이디 : </label>
-                    <input type="text" name="id" onChange={()=>this._changeID()}></input>
-                    <label>비밀번호 : </label>
-                    <input type="text" name="password" onChange={() => this._changePW()}></input>
-                    <input type="submit"value="로그인" onClick={() => this._selectUserData()}></input>
-                </form> */}
             </div>
         );
     }
