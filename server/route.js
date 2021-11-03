@@ -2,9 +2,20 @@ const express = require('express');
 const router = express.Router();
 const controller = require('./controller');
 
-router.post('/send/pw', controller.api.sendPw);
+const multer = require('multer');
+const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, 'upload/')//저장 위치
+    },
+    filename: function (req, file, cb) {
+        cb(null, file.originalname)//저장될 이름
+    }
+})
+const upload = multer({ storage: storage });
+            
+router.post('/api/login', controller.api.login);
 router.post('/add/user', controller.add.user);
-router.post('/add/store', controller.add.store);
+router.post('/add/store', upload.single('image') ,controller.add.store);
 
 router.post('/get/store', controller.get.store);
 router.post('/get/store_cnt', controller.get.store_cnt);

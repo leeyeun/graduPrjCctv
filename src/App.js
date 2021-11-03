@@ -1,7 +1,7 @@
 import './App.css';
 import React, { Component } from 'react';
 import { Route } from "react-router-dom";
-import { Main, Login, Signup, List, View} from './inc';
+import { Main, Login, Signup, List, View, Image } from './inc';
 import Write from './inc/write';
 import axios from 'axios';
 
@@ -19,6 +19,11 @@ class App extends Component{
       sit : "",
       introduce : "",
       image : "",
+      // list_data : [],
+      // list_page : 1,
+      // list_limit : 9,
+      // list_all_page : [],
+      // list_search : "",
 
     }
   }
@@ -56,7 +61,6 @@ class App extends Component{
       headers : new Headers(),
       data : { storeid : storeid }
   });
-
     this.setState({
       storeName : getData.data[0].storeName,
       address : getData.data[0].address,
@@ -68,25 +72,30 @@ class App extends Component{
     })
     console.log(getData)
   }
+  _toggleModal = (boolean) => {
+    this.setState({ login_modal : boolean })
+  };
 
   render(){
-    const { login, storeName, address, number, time, sit, introduce, image } = this.state;
-    const { _login, _logout, _getModifyData, _getstoreName } = this;
+    const { login, storeName, address, number, time, sit, introduce, image, login_modal } = this.state;
+    const { _login, _logout, _getModifyData, _getstoreName, _toggleModal } = this;
     console.log(login);
     return(
       <div>
-        <Main 
+        {/* <Login /> */}
+        <Main
           login = {login}
           _login = {_login}
           _logout = {_logout}
-        />
+          login_modal = {login_modal}
+          _toggleModal = {_toggleModal} />
+        
         <Route exact={true} path={"/login"}  component={Login}/>
         <Route exact={true} path={"/signup"}  component={Signup}/>
         <Route exact={true} path={"/write"} component={Write}/>
         <Route exact={true} path={"/write/modify/:data"} 
               component={this._withProps(Write,{
                 _getstoreName : _getstoreName,
-               
                 storeName : storeName,
                 address : address,
                 number : number,
@@ -96,9 +105,10 @@ class App extends Component{
                 image : image,
                 _getModifyData : _getModifyData,
               })} />
-
-        <Route exact={true} path={"/"} component={List}/>
-        <Route path={"/view/:data"} component={View} />
+          <Route exact={true} path={"/"} component={List}/>
+          <Route exact={true} path={"/view/:data"} component={View} />
+          <Route exact={true} path={"/image"} component={Image} />
+        
       </div>
     );
   }

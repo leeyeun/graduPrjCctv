@@ -48,7 +48,7 @@ module.exports = {
         },
         //가게 등록
         store : (body, callback) => {
-
+           
             Store.create({
                 storeName : body.storeName,
                 address : body.address,
@@ -70,7 +70,6 @@ module.exports = {
     },
 
     get : {
-        //가게 목록
         store : (body, callback) => {
             let search = "%%";
 
@@ -97,7 +96,6 @@ module.exports = {
                 })
             
         },
-        //페이징 처리
         store_cnt : (body, callback) => {
             let search = "%%";
             if(body.search){

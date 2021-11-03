@@ -39,7 +39,7 @@ class Login extends Component{
         }
 
         const obj = { id : id, password : password }
-        const res = await axios('/send/pw', {
+        const res = await axios('/api/login', {
             method : 'POST',
             data : obj,
             headers: new Headers()
@@ -48,12 +48,9 @@ class Login extends Component{
         if(res.data) {
     
             if(res.data.suc) {
-
-              sessionStorage.setItem('login', true)
-              this.setState({ login : true })
-              this.props._toggleModal(false)
-
-              return alert('로그인 되었습니다.');
+                this.props._login(res.data);
+                this.props._toggleModal(false);
+                return alert('로그인 되었습니다.');
             }else{
                 return alert('아이디 및 비밀번호가 일치하지 않습니다.');
             }
@@ -63,6 +60,24 @@ class Login extends Component{
     render(){
         return(
             <div className='login-div'>
+                {/* <div>로그인</div>
+                <form>
+                    <div className='login_div'>
+                        <div className='login_input_div'>
+                            <p> 아이디 </p>
+                            <input type='text' name='id' onChange={() => this._changeID()} autoComplete="off"/>
+                        </div>
+
+                        <div className='login_input_div' style={{ 'marginTop' : '40px'}}>
+                            <p> 비밀번호 </p>
+                            <input type='password' name='password' onChange={() => this._changePW()}/>
+                        </div>
+
+                        <div className='submit_div'>
+                        <div> <input type='button' value='로그인' onClick={() => this._selectUserData()}/> </div>
+                        </div>
+                        </div>
+                </form> */}
                 <Modal 
                     visible={this.props.login_modal} 
                     width="400" height="360"

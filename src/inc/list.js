@@ -13,6 +13,8 @@ class List extends Component {
           limit : 9,
           all_page : [],
           search : "",
+          file:null,
+          fileName: "",
         }
     }
     componentDidMount() {
@@ -79,15 +81,13 @@ class List extends Component {
         return (
             <div>
                 <Search search = {search}/>
+                
 
                 <div>
                 {list && list.length > 0 ?  list.map( (el, key) => {
                     const view_url = '/view/' + el.storeid;
                 return(
                     <div key={key}>
-                        <div>
-                            {/* <img src={el.image} width="200px" height="200px"></img> */}
-                        </div>
                         <div>
                             <div> <Link to ={view_url}>{el.storeName} </Link> </div>
                             <div> {el.address} </div>

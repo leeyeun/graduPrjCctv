@@ -6,10 +6,12 @@ const hashing = require(path.join(__dirname, 'config', 'hashing.js'));
 
 const user_ip = require("ip");
 
+const multer = require('multer');
+
 module.exports = {
     needs: () => upload,
     api : {
-        sendPw : (req, res) => {
+        login : (req, res) => {
             const body = req.body;
             const hash = hashing.enc(body.id, body.password, salt)
 
@@ -27,10 +29,7 @@ module.exports = {
               
                 res.send(obj);
             })
-            // console.log('1.salt합한값',body.userId+body.password+salt);
-  
-            // console.log('2. salt 값 : ' , salt)
-            // console.log('3. hash 결과 : ', hash)
+            
           },
     },
     add : {
@@ -47,6 +46,16 @@ module.exports = {
         },
 
         store : (req, res) => {
+            const storage = multer.diskStorage({
+                destination: function (req, file, cb) {
+                    cb(null, 'upload/')//저장 위치
+                },
+                filename: function (req, file, cb) {
+                    cb(null, file.originalname)//저장될 이름
+                }
+            })
+            const upload = multer({ storage: storage });
+            
             const body = req.body;
             console.log(req.body);
 
@@ -68,7 +77,6 @@ module.exports = {
                 }
             })
         },
-        //페이징 처리
         store_cnt : (req, res) => {
             const body = req.body;
 

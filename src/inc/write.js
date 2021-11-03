@@ -102,12 +102,12 @@ class Write extends Component{
     }
     
     render() {
-        const { storeName, address, number, time, sit, introduce} = this.props;
+        const { storeName, address, number, time, sit, introduce, image} = this.props;
         return(
             <div>
                 <div>
-                    <h3>store</h3>
-                    <form>
+                    <h3>store </h3>  
+                    <form encType="multipart/form-data" method="post">
                         <table>
                             <tbody>
                                 <tr>

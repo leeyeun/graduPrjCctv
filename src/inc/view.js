@@ -86,6 +86,9 @@ class View extends Component{
                     <div>
                         <input type="text" name="introduce" defaultValue={data.data[0].introduce} readOnly/>
                     </div>
+                    {/* <div>
+                        <img src={data.data[0].image} width="200px" height="200px" name="image" defaultValue={data.data[0].image}></img>
+                    </div> */}
                     <div>
                         <input type="text" name="image" defaultValue={data.data[0].image} readOnly/>
                     </div>

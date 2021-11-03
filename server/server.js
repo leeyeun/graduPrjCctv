@@ -1,7 +1,6 @@
 const express = require('express');
 const app = express();
 const router = require('./route');
-
 const sequelize = require('./models').sequelize;
 const bodyParser = require('body-parser');
 
@@ -16,13 +15,35 @@ app.use('/', router);
 
 
 const multer = require('multer');
-const upload = multer({dest: './upload'})
+const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, 'upload/')//저장 위치
+    },
+    filename: function (req, file, cb) {
+        cb(null, file.originalname)//저장될 이름
+    }
+})
+const upload = multer({ storage: storage });
+
+app.use('/images', express.static('uploads'));
+
 app.get('/upload', function(req, res) {
     res.render('upload');    
 });
 app.post('/upload', upload.single('image'), function(req, res) {
-    res.send('업로드 성공!')
+    console.log(req.file);
+    res.send('Uploaded! : '+ req.file);
 });
+
+// const storage = multer.diskStorage({
+//     destination : function (req, file, callback) {
+//         callback(null, 'uploads/')
+//     },
+//     filename: function (req, file, callback) {
+//         callback(null, file.originalname)
+//     }
+//  })
+//  const upload = multer({ storage : storage});
 
 // const {
 //     Teacher,
