@@ -1,0 +1,48 @@
+.sign-box{
+    margin: 0 auto;
+    width: 940px;
+    background-color: white;
+    padding: 20px;
+    margin-top: 45px;
+}
+
+.sign-info {
+    display: flex;
+    position: relative;
+    margin: 30px 0;
+    border-bottom: 1px solid #adadad;
+}
+.sign-label{
+    width: 150px;
+    vertical-align: middle;
+    margin-top: 5px;
+    padding-left: 10px;
+}
+.sign-label label {
+    text-align: center;
+    vertical-align: middle;
+    
+}
+.sign-info input {
+    width: 700px;
+    height: 40px;
+    font-size: 17px;
+    border: none;
+    outline: none;
+}
+.sign-submit input {
+    width: 100%;
+    height: 50px;
+    margin: 30px 0;
+    font-size: 17px;
+    outline: none;
+    border: none;
+    background-color: lightgray;
+}
+.sign-submit input:hover {
+    background-color: light-dark(rgb(239, 239, 239), rgb(59, 59, 59));
+}
+.sign-box h4{
+    font-size: 20px;
+    text-align: center;
+}

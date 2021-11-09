@@ -1,5 +1,6 @@
 import { Component } from "react";
 import axios from "axios";
+import './css/write.css';
 
 class Write extends Component{
     constructor(props){
@@ -105,10 +106,69 @@ class Write extends Component{
         const { storeName, address, number, time, sit, introduce, image} = this.props;
         return(
             <div>
-                <div>
+                <div className="write-box">
                     <h3>store </h3>  
-                    <form encType="multipart/form-data" method="post">
-                        <table>
+                    <form className="write-form" encType="multipart/form-data" method="post">
+                        <div className="write-info">
+                            <div className="info-name">
+                                <label>가게명</label>
+                            </div> 
+                            <div className="info-input">
+                                <input type="text" name="storeName" placeholder="가게명" defaultValue={storeName}></input>
+                            </div>
+                        </div>
+                        <div className="write-info">
+                            <div className="info-name">
+                                <label>주소</label>
+                            </div> 
+                            <div className="info-input">
+                                <input type="text" name="address" placeholder="주소" defaultValue={address}></input>
+                            </div>  
+                        </div>
+                        <div className="write-info">
+                            <div className="info-name">
+                                <label>번호</label>
+                            </div> 
+                            <div className="info-input">
+                                <input type="text" name="number" placeholder="번호" defaultValue={number}></input>
+                            </div>
+                        </div>
+                        <div className="write-info">
+                            <div className="info-name">
+                                <label>영업시간</label>
+                            </div> 
+                            <div className="info-input">
+                                <input type="text" name="time" placeholder="영업시간" defaultValue={time}></input>
+                            </div>
+                        </div>
+                        <div className="write-info">
+                            <div className="info-name">
+                                <label>총 좌석</label>
+                            </div> 
+                            <div className="info-input">
+                                <input type="text" name="sit" placeholder="총 좌석" defaultValue={sit}></input>
+                            </div>
+                        </div>
+                        <div className="write-info">
+                            <div className="info-name">
+                                <label>가게 소개</label>
+                            </div> 
+                            <div className="info-input">
+                                <input type="content" name="introduce" maxLength={300} placeholder="가게소개" defaultValue={introduce}></input>
+                            </div>
+                            </div>
+                        <div className="write-info">
+                            <div className="info-name">
+                                <label>이미지</label>
+                            </div> 
+                            <div className="info-input">
+                                <input type="file" name="image" placeholder="이미지" ></input>
+                            </div>
+                        </div>
+                        <div className="write-info-submit">
+                            <input type="button" value="등록하기" onClick={() => this._submitStore()}></input>
+                        </div>
+                        {/* <table>
                             <tbody>
                                 <tr>
                                     <td>가게명 : </td>
@@ -143,7 +203,7 @@ class Write extends Component{
                                     <td><input type="button" value="등록하기" onClick={() => this._submitStore()}></input></td>
                                 </tr>
                             </tbody>
-                        </table>
+                        </table> */}
                     </form>
                 </div>
             </div>

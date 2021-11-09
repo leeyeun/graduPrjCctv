@@ -1,5 +1,6 @@
 import { Component } from "react";
 import axios from "axios";
+import './css/signup.css';
 
 class Signup extends Component{
     
@@ -58,10 +59,54 @@ class Signup extends Component{
     }
     render(){
         return(
-            <div>
-              <h4> join </h4>
-              <form>
-                <table>
+            <div className="sign-box">
+              <h4> JOIN </h4>
+              <form className="sign-form">
+                <div className="sign-info">
+                  <div className="sign-label">
+                    <label>아이디</label>
+                  </div>
+                  <div className="sign-input">
+                    <input type='text' name="signup_id"  placeholder="6~20자 영문자를 사용하세요"/>
+                  </div>
+                </div>
+                <div className="sign-info">
+                  <div className="sign-label">
+                    <label>비밀번호</label>
+                  </div>
+                  <div className="sign-input">
+                    <input type='password' name="signup_password" placeholder="6~20자 영문자를 사용하세요"/>
+                  </div>
+                  
+                </div>
+                <div className="sign-info">
+                  <div className="sign-label">
+                    <label>비밀번호 확인</label>
+                  </div>
+                  <div className="sign-input">
+                    <input type='password' name="signup_pswCheck" placeholder="비밀번호를 한 번 더 입력해주세요"/>
+                  </div>
+                </div>
+                <div className="sign-info">
+                  <div className="sign-label">
+                    <label>이름</label>
+                  </div>
+                  <div className="sign-input">
+                    <input type='text' name="signup_name" placeholder="이름"/>
+                  </div>
+                </div>  
+                <div className="sign-info">
+                  <div className="sign-label">
+                    <label>이메일</label>
+                  </div>
+                  <div className="sign-input">
+                    <input type='text' name="signup_email" placeholder="이메일"/>
+                  </div>
+                </div>
+                <div className="sign-submit">
+                  <input type='button' value='가입하기' onClick={() => this._signup()} />
+                </div>
+                {/* <table>
                   <tbody>
                     <tr>
                       <td>아이디 : </td>
@@ -87,7 +132,7 @@ class Signup extends Component{
                       <td><input type='button' value='가입하기' onClick={() => this._signup()} /></td>
                     </tr>
                   </tbody>
-                </table>
+                </table> */}
               </form>
             </div>
         );

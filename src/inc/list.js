@@ -1,8 +1,10 @@
+import './css/list.css';
 import React, { Component } from 'react';
 import axios from 'axios';
 import queryString from 'query-string';
 import { Search } from './index';
 import { Link } from 'react-router-dom';
+import KakaoMap from './kakaomap';
 
 class List extends Component {
     constructor(props) {
@@ -79,34 +81,35 @@ class List extends Component {
         const { all_page, page, search } = this.state;
     
         return (
-            <div>
-                <Search search = {search}/>
-                
-
+            <div className="list-area">
                 <div>
-                {list && list.length > 0 ?  list.map( (el, key) => {
-                    const view_url = '/view/' + el.storeid;
-                return(
-                    <div key={key}>
-                        <div>
-                            <div> <Link to ={view_url}>{el.storeName} </Link> </div>
-                            <div> {el.address} </div>
-                            <div> {el.sit} </div>
-                        </div>
+                    <div className="list_search">
+                        <Search search = {search}/>
                     </div>
-                    )
-                })
-                : 
-                <div>
-                    {search !== "" ? <div>검색된 결과가 없습니다.</div>
-                                : <div>데이터가 없습니다.</div>
-                    }
-                    </div> 
-                }
-                </div>
-
-                <div className='paging_div'>
+                <div className="main-list">
                     <div>
+                        <KakaoMap />
+                    </div>
+                    <div className="list-box">
+                        {list && list.length > 0 ?  list.map( (el, key) => {
+                            const view_url = '/view/' + el.storeid;
+                        return(
+                            <div className="list-view" key={key}>
+                                <div className="list-store"> <Link className="list-Link" to ={view_url}>{el.storeName} </Link> </div>
+                                <div className="list-address"> {el.address} </div>
+                                <div className="list-sit"> {el.sit} </div>
+                            </div>
+                            )
+                        })
+                        : 
+                        <div>
+                            {search !== "" ? <div>검색된 결과가 없습니다.</div>
+                                        : <div>데이터가 없습니다.</div>
+                            }
+                            </div> 
+                        }
+                    </div>
+                    <div className="list-page">
                         <ul>
                             {all_page ? all_page.map( (el, key) => {
                             return(
@@ -119,7 +122,9 @@ class List extends Component {
                         </ul>
                     </div>
                 </div>
+                
             </div>
+        </div>
         );
     }
 }

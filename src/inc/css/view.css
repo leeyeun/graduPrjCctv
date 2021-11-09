@@ -1,0 +1,106 @@
+.view-box{
+    background-color: white;
+    margin: 0 auto;
+    width: 940px;
+    margin-top: 45px;
+    padding: 20px;
+}
+/* .view-content{
+    border: none;
+    outline: none;
+    width: 500px;
+} */
+.view-header{
+    border-bottom: 1px solid rgb(175, 172, 172);
+
+}
+
+.view-icon{
+    font-size: 14px;
+}
+
+.view-storename{
+    margin: 0;
+    border: none;
+    outline: none;
+    width: 500px;
+    font-size: 27px;
+    margin-bottom: 15px;
+}
+.view-info{
+    font-size: 15px;
+}
+.view-address{
+    font-size: 15px;
+    border: none;
+    outline: none;
+    width: 500px;
+}
+.view-number{
+    font-size: 15px;
+    border: none;
+    outline: none;
+    width: 500px;
+}
+.view-time{
+    font-size: 15px;
+    border: none;
+    outline: none;
+    width: 500px;
+}
+.view-sit{
+    font-size: 15px;
+    border: none;
+    outline: none;
+    width: 500px;
+}
+.view-introduce{
+    font-size: 15px;
+    border: none;
+    outline: none;
+    width: 500px;
+}
+.view-image{
+    font-size: 15px;
+    border: none;
+    outline: none;
+    width: 500px;
+}
+.view-viewcnt{
+    font-size: 14px;
+    border: none;
+    outline: none;
+    color: #cfcfcf;
+}
+.info{
+    margin-bottom: 8px;
+    margin-top: 10px;
+    display: flex;
+}
+.icon{
+    width: 20px;
+    margin-left: 18px;
+    color: #cfcfcf;
+}
+.icon-eye{
+    width: 20px;
+    margin-left: 16px;
+    color: #cfcfcf;
+    
+}
+.view-map{
+    margin-left: 15px;
+}
+.view-up-de{
+    outline: none;
+    text-align: right;
+    border: none;
+    
+}
+.view-up-de input{
+    border: none;
+    outline: none;
+    width: 80px;
+    height: 30px;
+    margin: 0px 5px;
+}

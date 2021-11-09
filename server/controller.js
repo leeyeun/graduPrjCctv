@@ -119,6 +119,13 @@ module.exports = {
                     res.send(true);
                 }
             })
+        },
+        like : (req, res) =>{
+            const body = req.body;
+
+            model.update.like(body, result => {
+                res.send(result)
+            })
         }
     },
     // upload : {

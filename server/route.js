@@ -24,6 +24,7 @@ router.post('/delete/store', controller.delete.store);
 
 router.post('/update/store', controller.update.store);
 router.post('/update/view_cnt', controller.update.view_cnt);
+router.post('/update/like', controller.update.like);
 
 //router.post('/upload/image', controller.upload.image);
 

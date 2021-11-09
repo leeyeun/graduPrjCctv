@@ -161,6 +161,19 @@ module.exports = {
             .catch(err => {
                 throw err;
             })
+        },
+        like : (body, callback) =>{
+
+            if(body.type === 'add'){
+                Store.update({ like : sequelize.literal('likes + 1')}, {
+                    where : { storeid : body.storeid }
+                })
+                // Like.create({
+                //     storeid : body.storeid,
+                //     user_id : body.user_id
+                // })
+            }
+            callback(true)
         }
     }
     // upload : {

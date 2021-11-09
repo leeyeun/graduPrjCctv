@@ -1,0 +1,47 @@
+.list-area{
+    margin: 0 auto;
+    width: 940px;
+}
+.main-list{
+    background-color: white;
+    padding: 20px 20px 0px 20px;
+}
+.list-box{
+    padding-top: 15px;
+    width: 900px;
+    display: flex;
+}
+.list-list{
+
+}
+.list-view{
+    margin: 0px 10px;
+    width: 210px;
+    height: 150px
+}
+.list-Link{
+    color: black;
+}
+.list-store{
+    font-size: 18px;
+    font-weight: 600;
+    padding-bottom: 5px;
+}
+.list-address{
+    color: #66666e;
+    margin-bottom: 2px;
+    font-size: 14px;
+}
+.list-sit{
+    color: #66666e;
+    font-size: 14px;
+}
+.list-page{
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+}
+.list-page ul{
+    text-align: center;
+    padding: 0px;
+}
+
