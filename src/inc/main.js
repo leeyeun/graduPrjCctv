@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import '../App.css';
 import {Link} from "react-router-dom";
-import { Login,} from './index';
+import { Login } from './index';
 
 class Main extends Component {
     constructor(props){
@@ -37,7 +37,7 @@ class Main extends Component {
         const { admin, user_ip, login, login_modal, _toggleModal } = this.props;
         
         return (
-            <div>
+            <div >
                 <nav className="header">
                     <div className="header_area">
                         <div className="header_left">

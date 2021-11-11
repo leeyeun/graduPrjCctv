@@ -3,8 +3,6 @@ import axios from "axios";
 import React,{ Component } from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHeart as solidHeart} from '@fortawesome/free-solid-svg-icons';
-import { faHeart as regularHeart } from '@fortawesome/free-regular-svg-icons';
 import { faMapMarker } from "@fortawesome/free-solid-svg-icons";
 import { faPhoneAlt } from "@fortawesome/free-solid-svg-icons";
 import { faClock } from "@fortawesome/free-regular-svg-icons";
@@ -18,14 +16,24 @@ class View extends Component{
         super(props)
         this.state = {
             data : [],
+            address : ""
         }
     }
+    
 
     componentDidMount(){
         const storeid = this.props.match.params.data;
+        console.log(storeid);
+
+        const address = this.props.match.params.data;
+        console.log(address);
+
+        this._getAddress();
 
         this._getData(storeid);
         this._addViewCnt(storeid);
+        
+        
         const script = document.createElement('script');
         script.async = true;
         script.src = 
@@ -66,6 +74,18 @@ class View extends Component{
             });
         };
     }
+    _getAddress = async function(address) {
+
+        const getAddress = await axios('/get/store_address', {
+            method : 'POST',
+            headers : new Headers(),
+            data : { address : address }
+        });
+
+        console.log(getAddress);
+        console.log(getAddress.data);
+        return this.setState({ address : getAddress });
+    }
 
     _getData = async function(storeid) {
 
@@ -75,9 +95,11 @@ class View extends Component{
             data : { storeid : storeid }
         });
 
-        console.log(getData);
+        
+        console.log(getData.data);
         return this.setState({ data : getData });
     }
+    
     _addViewCnt = async function (storeid) {
         await axios('/update/view_cnt', {
             method : 'POST',
@@ -101,22 +123,22 @@ class View extends Component{
             return window.location.href = '/';
         }
     }
-    _toggleLike = async function(){
-        const { user_id, login, _toggleModal } = this.props;
+    // _toggleLike = async function(){
+    //     const { user_id, login, _toggleModal } = this.props;
 
-        if(!login){
-            alert('로그인이 필요합니다.');
-            return _toggleModal(true)
-        }
-        const storeid = this.props.match.params.data;
+    //     if(!login){
+    //         alert('로그인이 필요합니다.');
+    //         return _toggleModal(true)
+    //     }
+    //     const storeid = this.props.match.params.data;
 
-        const obj = { type : 'add', user_id : user_id, storeid : storeid}
-        const res = await axios('/update/like', {
-            method : 'POST',
-            headers: new Headers(),
-            data : obj
-        })
-    }
+    //     const obj = { type : 'add', user_id : user_id, storeid : storeid}
+    //     const res = await axios('/update/like', {
+    //         method : 'POST',
+    //         headers: new Headers(),
+    //         data : obj
+    //     })
+    // }
     render(){
         const { data } = this.state;
         const { admin } = this.props;
@@ -138,10 +160,10 @@ class View extends Component{
                                 <div className="icon-eye"><FontAwesomeIcon icon={faEye} /></div>
                                 <input className="view-viewcnt" type="text" name="view_cnt" defaultValue={data.data[0].view_cnt + 1} readOnly></input>
                                 
-                                <div className="info">
-                                {/* <FontAwesomeIcon icon={solidHeart} onClick={()=> this._toggleLike()}/> */}
-                                    {/* <FontAwesomeIcon icon={regularHeart} onClick={()=> this._toggleLike()}/> */}
-                                </div>
+                                {/* <div className="info">
+                                    <FontAwesomeIcon icon={solidHeart} onClick={()=> this._toggleLike()}/>
+                                    <FontAwesomeIcon icon={regularHeart} onClick={()=> this._toggleLike()}/>
+                                </div> */}
                             </div>
                         </div>
                     </div>

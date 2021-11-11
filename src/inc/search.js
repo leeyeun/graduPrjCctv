@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import './main.css';
+import './css/search.css';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 
@@ -11,7 +11,7 @@ class Search extends Component{
             document.getElementsByName('search')[0].value = search
         }
         return(
-            <div className="list-search">
+            <div className="search-list">
                 <form className="search-form">
                     <FontAwesomeIcon icon={faSearch} className="search-icon" />
                     <input className="search-text" type='text' maxLength='20' name='search' placeholder='검색'></input>

@@ -5,6 +5,10 @@ import queryString from 'query-string';
 import { Search } from './index';
 import { Link } from 'react-router-dom';
 import KakaoMap from './kakaomap';
+import { faSmile} from '@fortawesome/free-regular-svg-icons';
+import { faAngry } from '@fortawesome/free-regular-svg-icons';
+import { faMeh } from '@fortawesome/free-regular-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 class List extends Component {
     constructor(props) {
@@ -22,6 +26,7 @@ class List extends Component {
     componentDidMount() {
         this._getListData();
         this._setPage();
+        
     }
     _getListData = async function() {
         const { limit } = this.state;
@@ -53,7 +58,8 @@ class List extends Component {
             page_arr.push(i);
         }
     
-        this.setState({ data : data_list, all_page : page_arr , search : search })
+        this.setState({ data : data_list, all_page : page_arr , search : search, })
+        
     }
 
     _changePage = function(el) {
@@ -74,6 +80,7 @@ class List extends Component {
     }
     
     
+    
 
 
     render() {
@@ -82,7 +89,46 @@ class List extends Component {
     
         return (
             <div className="list-area">
-                <div>
+                <div className="list-list">
+                    <div className="list-search">
+                       <Search search = {search}/>
+                    </div>
+                    <div className="list-box">
+                    {list && list.length > 0 ?  
+                        list.map( (el, key) => {
+                            const view_url = '/view/' + el.storeid;
+                            return(
+                                <div className="list-view" key={key}>
+                                    <div className="list-left" >
+                                        <div className="list-store"> <Link className="list-Link" to ={view_url}>{el.storeName} </Link> </div>
+                                        <div className="list-address"> {el.address} </div>
+                                        <div className="list-time">{el.time}</div>
+                                        
+                                    </div>
+                                    <div className="list-right">
+                                        <FontAwesomeIcon icon={faSmile} />
+                                        {/* <FontAwesomeIcon icon={faMeh} />
+                                        <FontAwesomeIcon icon={faAngry} /> */}
+                                        <div className="list-sit"> {el.sit} </div>
+                                    </div>
+                                </div>
+                                
+                                )
+                            })
+                        : 
+                        <div>
+                            {search !== "" ? <div>검색된 결과가 없습니다.</div>
+                                        : <div>데이터가 없습니다.</div>
+                            }
+                        </div> 
+                        }
+                    </div>
+                </div>
+
+                <div className="list-map">
+                    <KakaoMap />
+                </div>
+                {/* <div>
                     <div className="list_search">
                         <Search search = {search}/>
                     </div>
@@ -121,9 +167,9 @@ class List extends Component {
                             : null}
                         </ul>
                     </div>
-                </div>
+                </div> */}
                 
-            </div>
+            {/* </div> */}
         </div>
         );
     }

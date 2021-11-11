@@ -54,12 +54,9 @@ class KakaoMap extends Component{
     }
     render(){
         return(
-            <div>
-                <div className="list-map">
-                    <div id="map" style={{width:"900px", height:"400px"}}></div>
-                </div>
+            <div className="kakao-map">
+                <div id="map" style={{width:"100%", height:"100vh"}}></div>
             </div>
-                
         );
     }
 

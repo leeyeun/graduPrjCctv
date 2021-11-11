@@ -103,7 +103,7 @@ class Write extends Component{
     }
     
     render() {
-        const { storeName, address, number, time, sit, introduce, image} = this.props;
+        const { storeName, address, number, time, sit, introduce} = this.props;
         return(
             <div>
                 <div className="write-box">

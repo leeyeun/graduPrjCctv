@@ -92,6 +92,13 @@ module.exports = {
             model.get.store_data(body, data => {
                 res.send(data);
             }) 
+        },
+        store_address : (req, res) => {
+            const body = req.body;
+
+            model.get.store_address(body, data => {
+                res.send(data);
+            }) 
         }
     },
     delete : {

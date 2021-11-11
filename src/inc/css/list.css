@@ -1,4 +1,4 @@
-.list-area{
+/* .list-area{
     margin: 0 auto;
     width: 940px;
 }
@@ -44,4 +44,53 @@
     text-align: center;
     padding: 0px;
 }
+ */
 
+ .list-area{
+    display: flex;
+    background-color: rgb(255, 255, 255);
+    
+ }
+ .list-list{
+    width: 500px;
+    /* box-shadow: -2px 0px 04px 4px black; */
+    
+ }
+ .list-map{
+    float: right;
+    width: 1400px;
+ }
+.list-view{
+    display: flex;
+    width: 500px;
+    /* margin: 0px 10px; */
+    border-bottom: 1px solid #cfcfcf;
+    margin-top: 15px;
+    padding: 0px 10px 15px 20px;
+}
+.list-left{
+    width: 70%;
+}
+.list-right{
+    width: 30%;
+    font-size: 20px;
+    padding-left: 100px;
+}
+.list-store{
+    color: black;
+    padding-bottom: 5px;
+    font-weight: 600;
+}
+.list-Link{
+    color: black;
+}
+.list-address{
+    color: #66666e;
+}
+.list-time{
+    color: #66666e;
+}
+.list-sit{
+    color: #66666e;
+    font-size: 13px;
+}

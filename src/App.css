@@ -40,6 +40,7 @@ body {
   margin: 0;
   padding: 0;
   background-color: #f0f0f3;
+  font-family: "맑은고딕", sans-serif;
 }
 a {
   text-decoration: none;
@@ -53,6 +54,7 @@ ul {
   align-items: center; */
   background-color: white;
   padding: 8px 12px;
+  border-bottom: 1px solid#e5e5e5;
 }
 .header_area {
   width: 1200px;

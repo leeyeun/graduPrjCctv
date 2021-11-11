@@ -20,6 +20,9 @@ router.post('/add/store', upload.single('image') ,controller.add.store);
 router.post('/get/store', controller.get.store);
 router.post('/get/store_cnt', controller.get.store_cnt);
 router.post('/get/store_data', controller.get.store_data);
+
+router.post('/get/store_address', controller.get.store_address);
+
 router.post('/delete/store', controller.delete.store);
 
 router.post('/update/store', controller.update.store);

@@ -78,22 +78,23 @@ module.exports = {
             }
 
             Store.findAll({
+
                 where : {
                     storeName : {
                         [Op.like] : search
                     }
                 },
 
-                    limit : (body.page * body.limit),
-                    offset : (body.page - 1) * body.limit,
-                    order: sequelize.literal('storeid DESC')
-                })
-                .then(data => {
-                    callback(data)
-                })
-                .catch(err => {
-                    throw err;
-                })
+                limit : (body.page * body.limit),
+                offset : (body.page - 1) * body.limit,
+                order: sequelize.literal('storeid DESC')
+            })
+            .then(data => {
+                callback(data)
+            })
+            .catch(err => {
+                throw err;
+            })
             
         },
         store_cnt : (body, callback) => {
@@ -106,7 +107,8 @@ module.exports = {
                 where : {
                     storeName : {
                         [Op.like] : search
-                    }
+                    },
+                    
                 }
             })
             .then(result => {
@@ -124,7 +126,18 @@ module.exports = {
             .catch(err => {
                 throw err;
             })
-        }
+        },
+        store_address :(body, callback) =>{
+            Store.findAll({
+                where : { address : body.address }
+            })
+            .then(result => {
+                callback(result);
+            })
+            .catch(err => {
+                throw err;
+            })
+        },
     },
     delete : {
         store : (body, callback) => {

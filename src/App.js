@@ -2,7 +2,7 @@
 import './App.css';
 import React, { Component } from 'react';
 import { Route } from "react-router-dom";
-import { Main, Login, Signup, List, View, Image, KakaoMap} from './inc';
+import { Main, Login, Signup, List, View, Image} from './inc';
 import Write from './inc/write';
 import axios from 'axios';
 
@@ -100,7 +100,7 @@ class App extends Component{
     const { login, admin, user_ip, storeName, address, number, time, sit, introduce, image, login_modal } = this.state;
     const { _login, _logout, _getModifyData, _getstoreName, _toggleModal, user_id } = this;
     
-    console.log(login);
+    //console.log(login);
     return(
       <div className="app_div">
         {/* <Login /> */}
@@ -136,11 +136,11 @@ class App extends Component{
                 admin : admin,
                 login : login,
                 user_id : user_id,
+                address : address,
                 _toggleModal : _toggleModal
                 
               })} />
           <Route exact={true} path={"/image"} component={Image} />
-          {/* <Route exact={true} path={"/"} component={KakaoMap} /> */}
       </div>
     );
   }
