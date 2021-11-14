@@ -23,6 +23,8 @@ router.post('/get/store_data', controller.get.store_data);
 
 router.post('/get/store_address', controller.get.store_address);
 
+router.get('/get/store_sit', controller.get.store_sit);
+
 router.post('/delete/store', controller.delete.store);
 
 router.post('/update/store', controller.update.store);

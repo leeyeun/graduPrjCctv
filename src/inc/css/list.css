@@ -47,34 +47,47 @@
  */
 
  .list-area{
-    display: flex;
     background-color: rgb(255, 255, 255);
-    
+    height: 1200px;
+ }
+ .list-box{
+     margin: 0 auto;
+
+     width: 75%;
+ }
+ .list-search{
+     width: 70%;
+     margin: 0 auto;
  }
  .list-list{
-    width: 500px;
+    width: 70%;
+    margin: 0 auto;
     /* box-shadow: -2px 0px 04px 4px black; */
     
  }
  .list-map{
-    float: right;
-    width: 1400px;
+    width: 70%;
+    margin: 0 auto;
+    height: 600px;
  }
 .list-view{
     display: flex;
-    width: 500px;
+    /* width: 500px; */
     /* margin: 0px 10px; */
     border-bottom: 1px solid #cfcfcf;
     margin-top: 15px;
-    padding: 0px 10px 15px 20px;
+    padding: 20px 10px 15px 20px;
+    margin: 0 auto;
 }
 .list-left{
-    width: 70%;
+    font-size: 18px;
+    width: 80%;
 }
 .list-right{
-    width: 30%;
-    font-size: 20px;
-    padding-left: 100px;
+    width: 20%;
+    font-size: 30px;
+    padding-left: 80px;
+    
 }
 .list-store{
     color: black;
@@ -92,5 +105,7 @@
 }
 .list-sit{
     color: #66666e;
-    font-size: 13px;
+    font-size: 16px;
+    padding-top: 10px;
+    padding-left: 30px;
 }

@@ -47,8 +47,8 @@ class Main extends Component {
                             {/* <li><Link to="/">소개</Link></li>
                             <li><Link to="/">맛집리스트</Link></li>
                             <li><Link to="/">FAQ</Link></li>
-                            <li><Link to="/">공지사항</Link></li> */}
-                            {/* <li><Link to="/">마이페이지</Link></li> */}
+                            <li><Link to="/">공지사항</Link></li>
+                            <li><Link to="/">마이페이지</Link></li> */}
                         </ul>
                         <ul className="header_right">
                             {login && admin ==='Y' && user_ip ==="192.168.55.244"
@@ -69,14 +69,9 @@ class Main extends Component {
                             ? <li><Link to="/signup">회원가입</Link></li> 
                             : null }
 
-                            
-                             
                         </ul>
-                        
                     </div>
-                    
                 </nav>
-                
             </div>
         )
     }

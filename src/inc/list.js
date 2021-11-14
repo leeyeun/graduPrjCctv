@@ -5,22 +5,27 @@ import queryString from 'query-string';
 import { Search } from './index';
 import { Link } from 'react-router-dom';
 import KakaoMap from './kakaomap';
-import { faSmile} from '@fortawesome/free-regular-svg-icons';
-import { faAngry } from '@fortawesome/free-regular-svg-icons';
-import { faMeh } from '@fortawesome/free-regular-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSmile } from '@fortawesome/free-regular-svg-icons';
+import { faAngry} from '@fortawesome/free-regular-svg-icons';
+import { faMeh} from '@fortawesome/free-regular-svg-icons';
+import { faFrown } from "@fortawesome/free-regular-svg-icons";
 
 class List extends Component {
     constructor(props) {
         super(props)
         this.state = {
-          data : [],
-          page : 1,
-          limit : 9,
-          all_page : [],
-          search : "",
-          file:null,
-          fileName: "",
+            data : [],
+            page : 1,
+            limit : 9,
+            all_page : [],
+            search : "",
+            file:null,
+            fileName: "",
+
+            curHead : 10,
+            sit : 50
         }
     }
     componentDidMount() {
@@ -79,55 +84,106 @@ class List extends Component {
         return 1;
     }
     
-    
+    _countHead = function (curHead, sit) {
+        
+        const exp = (curHead/sit)*100;
+
+        if(76<=exp && exp<=100){
+            return (
+                <div>
+                    <FontAwesomeIcon icon={faSmile} />
+                    <FontAwesomeIcon icon={faMeh} />
+                    <FontAwesomeIcon icon={faFrown} />
+                    <FontAwesomeIcon icon={faAngry} style={{color: 'red'}}/>
+                </div>
+                
+            )
+        }
+        else if(51<=exp && exp<=75){
+            return(
+                <div>
+                    <FontAwesomeIcon icon={faSmile} />
+                    <FontAwesomeIcon icon={faMeh} />
+                    <FontAwesomeIcon icon={faFrown} style={{color: 'red'}}/>
+                    <FontAwesomeIcon icon={faAngry} />
+                </div>
+                
+            )
+        }
+        else if(26<=exp && exp<=50){
+            return (
+                <div>
+                    <FontAwesomeIcon icon={faSmile} />
+                    <FontAwesomeIcon icon={faMeh} style={{color: 'red'}}/>
+                    <FontAwesomeIcon icon={faFrown} />
+                    <FontAwesomeIcon icon={faAngry} />
+                </div>
+                
+            )
+        }
+        else {
+            return (
+                <div>
+                    <FontAwesomeIcon icon={faSmile} style={{color: 'red'}}/>
+                    <FontAwesomeIcon icon={faMeh} />
+                    <FontAwesomeIcon icon={faFrown} />
+                    <FontAwesomeIcon icon={faAngry} />
+                </div>
+                
+            )
+        }
+    }
     
 
 
     render() {
         const list = this.state.data.data;
         const { all_page, page, search } = this.state;
-    
+       
         return (
             <div className="list-area">
-                <div className="list-list">
+                <div className="list-box">
                     <div className="list-search">
-                       <Search search = {search}/>
+                        <Search search = {search}/>
                     </div>
-                    <div className="list-box">
-                    {list && list.length > 0 ?  
-                        list.map( (el, key) => {
-                            const view_url = '/view/' + el.storeid;
-                            return(
-                                <div className="list-view" key={key}>
-                                    <div className="list-left" >
-                                        <div className="list-store"> <Link className="list-Link" to ={view_url}>{el.storeName} </Link> </div>
-                                        <div className="list-address"> {el.address} </div>
-                                        <div className="list-time">{el.time}</div>
-                                        
+                    <div className="list-map">
+                        <KakaoMap />
+                    </div>
+                    
+                    <div className="list-list">
+                        
+                        <div className="list-ch">
+                        {list && list.length > 0 ?  
+                            list.map( (el, key) => {
+                                const view_url = '/view/' + el.storeid;
+                                return(
+                                    <div className="list-view" key={key}>
+                                        <div className="list-left" >
+                                            <div className="list-store"> <Link className="list-Link" to ={view_url}>{el.storeName} </Link> </div>
+                                            <div className="list-address"> {el.address} </div>
+                                            <div className="list-time">{el.time}</div>
+                                            
+                                        </div>
+                                        <div className="list-right">
+                                            {this._countHead(el.curHead, el.sit)}
+                                            <div className="list-sit"> {el.curHead} / {el.sit} </div>
+                                        </div>
                                     </div>
-                                    <div className="list-right">
-                                        <FontAwesomeIcon icon={faSmile} />
-                                        {/* <FontAwesomeIcon icon={faMeh} />
-                                        <FontAwesomeIcon icon={faAngry} /> */}
-                                        <div className="list-sit"> {el.sit} </div>
-                                    </div>
-                                </div>
-                                
-                                )
-                            })
-                        : 
-                        <div>
-                            {search !== "" ? <div>검색된 결과가 없습니다.</div>
-                                        : <div>데이터가 없습니다.</div>
+                                    
+                                    )
+                                })
+                            : 
+                            <div>
+                                {search !== "" ? <div>검색된 결과가 없습니다.</div>
+                                            : <div>데이터가 없습니다.</div>
+                                }
+                            </div> 
                             }
-                        </div> 
-                        }
+                        </div>
                     </div>
                 </div>
 
-                <div className="list-map">
-                    <KakaoMap />
-                </div>
+                
                 {/* <div>
                     <div className="list_search">
                         <Search search = {search}/>

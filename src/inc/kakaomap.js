@@ -55,7 +55,7 @@ class KakaoMap extends Component{
     render(){
         return(
             <div className="kakao-map">
-                <div id="map" style={{width:"100%", height:"100vh"}}></div>
+                <div id="map" style={{width:"100%", height:"600px"}}></div>
             </div>
         );
     }

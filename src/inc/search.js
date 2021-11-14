@@ -11,11 +11,19 @@ class Search extends Component{
             document.getElementsByName('search')[0].value = search
         }
         return(
-            <div className="search-list">
+            <div className="search-sclist">
                 <form className="search-form">
-                    <FontAwesomeIcon icon={faSearch} className="search-icon" />
-                    <input className="search-text" type='text' maxLength='20' name='search' placeholder='검색'></input>
-                    <input className="search-btn" type='submit' value='검색'></input>
+                    {/* <FontAwesomeIcon icon={faSearch} className="search-icon" /> */}
+                    <div className="search-left">
+                        <input className="search-text" type='text' maxLength='20' name='search' placeholder='검색'></input>
+                    </div>
+                    <div className="search-right">
+                        <button className="search-btn" type='submit'>
+                            <FontAwesomeIcon icon={faSearch} className="search-icon" />
+                        </button>
+                    </div>
+                    
+                    
                 </form>
             </div>
         );

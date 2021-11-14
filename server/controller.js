@@ -77,6 +77,14 @@ module.exports = {
                 }
             })
         },
+        store_sit : (req, res) => {
+
+            model.get.store_sit(result => {
+                if(result){
+                    res.send(result);
+                }
+            })
+        },
         store_cnt : (req, res) => {
             const body = req.body;
 
@@ -99,7 +107,8 @@ module.exports = {
             model.get.store_address(body, data => {
                 res.send(data);
             }) 
-        }
+        },
+        
     },
     delete : {
         store : (req, res) => {

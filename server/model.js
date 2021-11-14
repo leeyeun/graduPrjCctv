@@ -97,6 +97,15 @@ module.exports = {
             })
             
         },
+        store_sit : (callback)=>{
+            Store.findAll()
+            .then(data => {
+                callback(data);
+            })
+            .catch(err => {
+                throw err;
+            })
+        },
         store_cnt : (body, callback) => {
             let search = "%%";
             if(body.search){
@@ -138,6 +147,7 @@ module.exports = {
                 throw err;
             })
         },
+        
     },
     delete : {
         store : (body, callback) => {

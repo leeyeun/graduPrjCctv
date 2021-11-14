@@ -46,6 +46,11 @@ module.exports = (sequelize, DataTypes) => {
                 type: DataTypes.INTEGER,
                 allowNull : false,
                 defaultVale : 0
+            },
+            curHead : {
+                type : DataTypes.INTEGER,
+                allowNull : false,
+                defaultVale: 0 
             }
         },
         {
