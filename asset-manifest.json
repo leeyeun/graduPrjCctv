@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/graduPrjCctv/static/css/main.0fca194e.chunk.css",
-    "main.js": "/graduPrjCctv/static/js/main.be90e808.chunk.js",
-    "main.js.map": "/graduPrjCctv/static/js/main.be90e808.chunk.js.map",
-    "runtime-main.js": "/graduPrjCctv/static/js/runtime-main.21ccc77e.js",
-    "runtime-main.js.map": "/graduPrjCctv/static/js/runtime-main.21ccc77e.js.map",
-    "static/js/2.1c85ea81.chunk.js": "/graduPrjCctv/static/js/2.1c85ea81.chunk.js",
-    "static/js/2.1c85ea81.chunk.js.map": "/graduPrjCctv/static/js/2.1c85ea81.chunk.js.map",
-    "static/js/3.b6538354.chunk.js": "/graduPrjCctv/static/js/3.b6538354.chunk.js",
-    "static/js/3.b6538354.chunk.js.map": "/graduPrjCctv/static/js/3.b6538354.chunk.js.map",
-    "index.html": "/graduPrjCctv/index.html",
-    "static/css/main.0fca194e.chunk.css.map": "/graduPrjCctv/static/css/main.0fca194e.chunk.css.map",
-    "static/js/2.1c85ea81.chunk.js.LICENSE.txt": "/graduPrjCctv/static/js/2.1c85ea81.chunk.js.LICENSE.txt"
+    "main.css": "/graduprjcctv/static/css/main.0fca194e.chunk.css",
+    "main.js": "/graduprjcctv/static/js/main.be90e808.chunk.js",
+    "main.js.map": "/graduprjcctv/static/js/main.be90e808.chunk.js.map",
+    "runtime-main.js": "/graduprjcctv/static/js/runtime-main.45b1f82f.js",
+    "runtime-main.js.map": "/graduprjcctv/static/js/runtime-main.45b1f82f.js.map",
+    "static/js/2.1c85ea81.chunk.js": "/graduprjcctv/static/js/2.1c85ea81.chunk.js",
+    "static/js/2.1c85ea81.chunk.js.map": "/graduprjcctv/static/js/2.1c85ea81.chunk.js.map",
+    "static/js/3.b6538354.chunk.js": "/graduprjcctv/static/js/3.b6538354.chunk.js",
+    "static/js/3.b6538354.chunk.js.map": "/graduprjcctv/static/js/3.b6538354.chunk.js.map",
+    "index.html": "/graduprjcctv/index.html",
+    "static/css/main.0fca194e.chunk.css.map": "/graduprjcctv/static/css/main.0fca194e.chunk.css.map",
+    "static/js/2.1c85ea81.chunk.js.LICENSE.txt": "/graduprjcctv/static/js/2.1c85ea81.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.21ccc77e.js",
+    "static/js/runtime-main.45b1f82f.js",
     "static/js/2.1c85ea81.chunk.js",
     "static/css/main.0fca194e.chunk.css",
     "static/js/main.be90e808.chunk.js"
