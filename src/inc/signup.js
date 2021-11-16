@@ -106,33 +106,6 @@ class Signup extends Component{
                 <div className="sign-submit">
                   <input type='button' value='가입하기' onClick={() => this._signup()} />
                 </div>
-                {/* <table>
-                  <tbody>
-                    <tr>
-                      <td>아이디 : </td>
-                      <td><input type='text' name="signup_id" /></td>
-                    </tr>
-                    <tr>
-                      <td>비밀번호 : </td>
-                      <td><input type='password' name="signup_password"/></td>
-                    </tr>
-                    <tr>
-                      <td>비밀번호 확인 : </td>
-                      <td><input type='password' name="signup_pswCheck" /></td>
-                    </tr>
-                    <tr>
-                      <td>이름 : </td>
-                      <td><input type='text' name="signup_name"/></td>
-                    </tr>
-                    <tr>
-                      <td>이메일 : </td>
-                      <td><input type='text' name="signup_email"/></td>
-                    </tr>
-                    <tr>
-                      <td><input type='button' value='가입하기' onClick={() => this._signup()} /></td>
-                    </tr>
-                  </tbody>
-                </table> */}
               </form>
             </div>
         );

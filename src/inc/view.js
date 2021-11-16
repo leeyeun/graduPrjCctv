@@ -9,6 +9,7 @@ import { faClock } from "@fortawesome/free-regular-svg-icons";
 import { faEye } from "@fortawesome/free-regular-svg-icons";
 import { faEdit } from "@fortawesome/free-regular-svg-icons";
 import { faChair } from "@fortawesome/free-solid-svg-icons";
+import { faUser } from "@fortawesome/free-regular-svg-icons";
 import './css/view.css';
 
 class View extends Component{
@@ -24,11 +25,6 @@ class View extends Component{
     componentDidMount(){
         const storeid = this.props.match.params.data;
         console.log(storeid);
-
-        const address = this.props.match.params.data;
-        console.log(address);
-
-        this._getAddress();
 
         this._getData(storeid);
         this._addViewCnt(storeid);
@@ -74,18 +70,7 @@ class View extends Component{
             });
         };
     }
-    _getAddress = async function(address) {
-
-        const getAddress = await axios('/get/store_address', {
-            method : 'POST',
-            headers : new Headers(),
-            data : { address : address }
-        });
-
-        console.log(getAddress);
-        console.log(getAddress.data);
-        return this.setState({ address : getAddress });
-    }
+    
 
     _getData = async function(storeid) {
 
@@ -187,19 +172,18 @@ class View extends Component{
                             <input className="view-sit" type="text" name="sit" defaultValue={data.data[0].sit} readOnly/>
                         </div>
                         <div className="info">
+                            <div className="icon"><FontAwesomeIcon icon={faUser} /></div>
+                            <input className="view-curHead" type="text" name="curHead" defaultValue={data.data[0].curHead} readOnly/>
+                        </div>
+                        <div className="info">
                             <div className="icon"><FontAwesomeIcon icon={faEdit} /></div>
                             <input className="view-introduce" type="text" name="introduce" defaultValue={data.data[0].introduce} readOnly/>
                         </div>
-                        <div className="info">
-                        {/* <
-                    <img src={data.data[0].image} width="200px" height="200px" name="image" defaultValue={data.data[0].image}></img>
-                        */}
-                            {/* <input className="view-image" type="text" name="image" defaultValue={data.data[0].image} readOnly/> */}
-                        </div>
+                        
                         
                         
                     </div>
-                    <div className="view-map" id="map" style={{width:"350px", height:"270px"}}></div>
+                    {/* <div className="view-map" id="map" style={{width:"350px", height:"270px"}}></div> */}
                     <div className="view-controll">
                         {admin === 'Y'
                         ? 

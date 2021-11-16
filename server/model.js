@@ -59,6 +59,7 @@ module.exports = {
                 image : body.image,
                 view_cnt : 0,
                 likes : 0,
+                curHead : 0,
 
             }).then(data => {
                 callback(true)
@@ -185,22 +186,5 @@ module.exports = {
                 throw err;
             })
         },
-        like : (body, callback) =>{
-
-            if(body.type === 'add'){
-                Store.update({ like : sequelize.literal('likes + 1')}, {
-                    where : { storeid : body.storeid }
-                })
-                // Like.create({
-                //     storeid : body.storeid,
-                //     user_id : body.user_id
-                // })
-            }
-            callback(true)
-        }
     }
-    // upload : {
-    //     image : (body, image,  callback) => {
-    //     }
-    // }
 }

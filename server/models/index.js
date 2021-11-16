@@ -31,19 +31,9 @@ let sequelize = new Sequelize(
     .catch(err => {
         console.log('Unable to connect to the database: ', err);
     });
-    //db.Teacher = require('./teacher')(sequelize, Sequelize);
     db.User = require('./user')(sequelize, Sequelize);
     db.Store = require('./store')(sequelize, Sequelize);
-    //db.Admin = require('./admin')(sequelize, Sequelize);
-    db.Like = require('./like')(sequelize, Sequelize);
-    db.Store.belongsToMany(db.User,{
-      through : 'like',
-      foreinkey : 'storeid'
-    });
-    db.User.belongsToMany(db.Store,{
-      through : 'like',
-      foreinkey : 'user_id'
-    });
+    
 
 db.secret = '(9*)5$&!3%^0%^@@2$1!#5@2!4';
 module.exports = db;

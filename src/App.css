@@ -39,7 +39,7 @@
 body {
   margin: 0;
   padding: 0;
-  background-color: #f0f0f3;
+  background-color: white;
   font-family: "맑은고딕", sans-serif;
 }
 a {
@@ -98,44 +98,4 @@ ul {
 .header_right a {
   color: black;
 }
-.login_tit {
-  border-bottom: solid 1px #ababab;
-  padding-bottom : 20px
-}
 
-.modal_tools {
-  margin-top : -100px
-}
-
-.login_input_div p {
-  font-weight: bold;
-  margin-bottom : 8px;
-}
-
-.login_input_div input {
-  width: 92%;
-  padding: 4px;
-  margin-top: -10px;
-}
-
-.login_div {
-  text-align: left;
-  padding-left: 20px;
-}
-
-.submit_div {
-  display: grid;
-  grid-template-columns: 45% auto;
-  margin-top: 12%;
-}
-
-.submit_div div {
-  text-align: center;
-}
-
-.submit_div div input {
-  cursor: pointer;
-}
-/* .app_div {
-  margin: 0 auto;
-} */

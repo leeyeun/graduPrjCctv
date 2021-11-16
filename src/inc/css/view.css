@@ -54,6 +54,12 @@
     outline: none;
     width: 500px;
 }
+.view-curHead{
+    font-size: 15px;
+    border: none;
+    outline: none;
+    width: 500px;
+}
 .view-introduce{
     font-size: 15px;
     border: none;

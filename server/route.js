@@ -15,7 +15,7 @@ const upload = multer({ storage: storage });
             
 router.post('/api/login', controller.api.login);
 router.post('/add/user', controller.add.user);
-router.post('/add/store', upload.single('image') ,controller.add.store);
+router.post('/add/store',controller.add.store);
 
 router.post('/get/store', controller.get.store);
 router.post('/get/store_cnt', controller.get.store_cnt);

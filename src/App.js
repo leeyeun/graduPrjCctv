@@ -115,7 +115,13 @@ class App extends Component{
           user_id = {user_id}
           />
         
-        <Route exact={true} path={"/login"}  component={Login}/>
+        <Route exact={true} path={"/login"} 
+                component={this._withProps(Login,{
+                  _login : _login,
+                  login_modal : login_modal,
+                  _toggleModal : _toggleModal,
+                 })}/>
+        
         <Route exact={true} path={"/signup"}  component={Signup}/>
         <Route exact={true} path={"/write"} component={Write}/>
         <Route exact={true} path={"/write/modify/:data"} 

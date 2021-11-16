@@ -171,6 +171,5 @@
       "react-app"
     ]
   },
-  "proxy": "http://localhost:4000",
-  "homepage": "https://leeyeun.github.io/graduprjcctv"
+  "proxy": "http://localhost:4000"
 }

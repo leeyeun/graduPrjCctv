@@ -1,52 +1,4 @@
-/* .list-area{
-    margin: 0 auto;
-    width: 940px;
-}
-.main-list{
-    background-color: white;
-    padding: 20px 20px 0px 20px;
-}
-.list-box{
-    padding-top: 15px;
-    width: 900px;
-    display: flex;
-}
-.list-list{
-
-}
-.list-view{
-    margin: 0px 10px;
-    width: 210px;
-    height: 150px
-}
-.list-Link{
-    color: black;
-}
-.list-store{
-    font-size: 18px;
-    font-weight: 600;
-    padding-bottom: 5px;
-}
-.list-address{
-    color: #66666e;
-    margin-bottom: 2px;
-    font-size: 14px;
-}
-.list-sit{
-    color: #66666e;
-    font-size: 14px;
-}
-.list-page{
-    margin-bottom: 20px;
-    padding-bottom: 20px;
-}
-.list-page ul{
-    text-align: center;
-    padding: 0px;
-}
- */
-
- .list-area{
+.list-area{
     background-color: rgb(255, 255, 255);
     height: 1200px;
  }
@@ -62,18 +14,20 @@
  .list-list{
     width: 70%;
     margin: 0 auto;
-    /* box-shadow: -2px 0px 04px 4px black; */
-    
+ }
+ .list-ch{
+
  }
  .list-map{
     width: 70%;
     margin: 0 auto;
-    height: 600px;
+    height: 500px;
  }
+ .kakao-map{
+    height: 500px;
+}
 .list-view{
     display: flex;
-    /* width: 500px; */
-    /* margin: 0px 10px; */
     border-bottom: 1px solid #cfcfcf;
     margin-top: 15px;
     padding: 20px 10px 15px 20px;
@@ -108,4 +62,45 @@
     font-size: 16px;
     padding-top: 10px;
     padding-left: 30px;
+}
+
+@media screen and (min-width : 321px) and (max-width: 768px) {
+    .list-area{
+     }
+    .list-box{
+        margin: 0 auto;
+        width: 100%;
+   }
+   
+    .list-search{
+        width: 100%;
+        margin: 0 auto;
+        padding: 0px 10px 0px 10px;
+    }
+    .list-map{
+        width: 100%;
+        margin: 0 auto;
+        height: 300px;
+    }
+    .kakao-map{
+        height: 300px;
+    }
+   .list-list{
+        width: 100%;
+        margin: 0px;
+    }
+    .list-view{
+        border-bottom: 1px solid #cfcfcf;
+        display: flex;
+        flex-direction: column;
+    }
+    .list-left{
+        font-size: 18px;
+        width: 100%;
+    }
+    .list-right{
+        font-size: 30px;
+        width: 100%;
+        padding: 0px;
+    }
 }

@@ -1,6 +1,6 @@
 .sign-box{
     margin: 0 auto;
-    width: 940px;
+    width: 700px;
     background-color: white;
     padding: 20px;
     margin-top: 45px;
@@ -24,7 +24,7 @@
     
 }
 .sign-info input {
-    width: 700px;
+    width: 500px;
     height: 40px;
     font-size: 17px;
     border: none;

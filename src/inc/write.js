@@ -12,7 +12,6 @@ class Write extends Component{
             time : "",
             sit : "",
             introduce : "",
-            image : "",
 
         }
 
@@ -25,7 +24,6 @@ class Write extends Component{
         const time = document.getElementsByName('time')[0].value.trim();
         const sit = document.getElementsByName('sit')[0].value.trim();
         const introduce = document.getElementsByName('introduce')[0].value.trim();
-        const image = document.getElementsByName('image')[0].value.trim();
 
         
         if(!this.props.match.params.data){
@@ -48,9 +46,6 @@ class Write extends Component{
         else if(introduce===""){
             return alert("가게 소개를 입력해주세요.");
         }
-        else if(image===""){
-            return alert("사진을 추가해주세요.");
-        }
             const data = { 
                 storeName : storeName, 
                 address : address,
@@ -58,7 +53,6 @@ class Write extends Component{
                 time : time,
                 sit : sit,
                 introduce : introduce,
-                image :image
             };
             const res = await axios('/add/store', {
                 method : 'POST',
@@ -78,7 +72,6 @@ class Write extends Component{
                 time : time,
                 sit : sit,
                 introduce : introduce,
-                image :image,
                 storeid : this.props.match.params.data
             };
             const res = await axios('/update/store', {
@@ -157,14 +150,6 @@ class Write extends Component{
                                 <input type="content" name="introduce" maxLength={300} placeholder="가게소개" defaultValue={introduce}></input>
                             </div>
                             </div>
-                        <div className="write-info">
-                            <div className="info-name">
-                                <label>이미지</label>
-                            </div> 
-                            <div className="info-input">
-                                <input type="file" name="image" placeholder="이미지" ></input>
-                            </div>
-                        </div>
                         <div className="write-info-submit">
                             <input type="button" value="등록하기" onClick={() => this._submitStore()}></input>
                         </div>

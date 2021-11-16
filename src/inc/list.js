@@ -138,7 +138,7 @@ class List extends Component {
 
     render() {
         const list = this.state.data.data;
-        const { all_page, page, search } = this.state;
+        const { search } = this.state;
        
         return (
             <div className="list-area">
@@ -182,50 +182,6 @@ class List extends Component {
                         </div>
                     </div>
                 </div>
-
-                
-                {/* <div>
-                    <div className="list_search">
-                        <Search search = {search}/>
-                    </div>
-                <div className="main-list">
-                    <div>
-                        <KakaoMap />
-                    </div>
-                    <div className="list-box">
-                        {list && list.length > 0 ?  list.map( (el, key) => {
-                            const view_url = '/view/' + el.storeid;
-                        return(
-                            <div className="list-view" key={key}>
-                                <div className="list-store"> <Link className="list-Link" to ={view_url}>{el.storeName} </Link> </div>
-                                <div className="list-address"> {el.address} </div>
-                                <div className="list-sit"> {el.sit} </div>
-                            </div>
-                            )
-                        })
-                        : 
-                        <div>
-                            {search !== "" ? <div>검색된 결과가 없습니다.</div>
-                                        : <div>데이터가 없습니다.</div>
-                            }
-                            </div> 
-                        }
-                    </div>
-                    <div className="list-page">
-                        <ul>
-                            {all_page ? all_page.map( (el, key) => {
-                            return(
-                                el === page ? <li key={key} className='page_num'> <b> {el} </b> </li>
-                                            : <li key={key} className='page_num' onClick={() => this._changePage(el)}> {el} </li>
-                            )
-                            })
-                            
-                            : null}
-                        </ul>
-                    </div>
-                </div> */}
-                
-            {/* </div> */}
         </div>
         );
     }
