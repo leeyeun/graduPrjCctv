@@ -23,6 +23,9 @@ class App extends Component{
       introduce : "",
       image : "",
       user_id: "",
+      
+      latitude : "",
+      longitude : "",
       // list_data : [],
       // list_page : 1,
       // list_limit : 9,
@@ -89,6 +92,8 @@ class App extends Component{
       sit : getData.data[0].sit,
       introduce : getData.data[0].introduce,
       image : getData.data[0].image,
+      latitude : getData.data[0].latitude,
+      longitude : getData.data[0].longitude
     })
     console.log(getData)
   }
@@ -97,7 +102,7 @@ class App extends Component{
   };
 
   render(){
-    const { login, admin, user_ip, storeName, address, number, time, sit, introduce, image, login_modal } = this.state;
+    const { login, admin, user_ip, storeName, address, number, time, sit, introduce, image, login_modal, latitude, longitude } = this.state;
     const { _login, _logout, _getModifyData, _getstoreName, _toggleModal, user_id } = this;
     
     //console.log(login);
@@ -135,6 +140,8 @@ class App extends Component{
                 introduce : introduce,
                 image : image,
                 _getModifyData : _getModifyData,
+                latitude : latitude,
+                longitude : longitude
               })} />
           <Route exact={true} path={"/"} component={List}/>
           <Route exact={true} path={"/view/:data"} 

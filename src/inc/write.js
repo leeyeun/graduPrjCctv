@@ -12,7 +12,8 @@ class Write extends Component{
             time : "",
             sit : "",
             introduce : "",
-
+            latitude : "",
+            longitude : "",
         }
 
     }
@@ -24,6 +25,8 @@ class Write extends Component{
         const time = document.getElementsByName('time')[0].value.trim();
         const sit = document.getElementsByName('sit')[0].value.trim();
         const introduce = document.getElementsByName('introduce')[0].value.trim();
+        const latitude = document.getElementsByName('latitude')[0].value.trim();
+        const longitude = document.getElementsByName('longitude')[0].value.trim();
 
         
         if(!this.props.match.params.data){
@@ -46,6 +49,13 @@ class Write extends Component{
         else if(introduce===""){
             return alert("가게 소개를 입력해주세요.");
         }
+        else if(latitude===""){
+            return alert("위도를 입력해주세요.");
+        }
+        else if(longitude===""){
+            return alert("경도를 입력해주세요.");
+        }
+
             const data = { 
                 storeName : storeName, 
                 address : address,
@@ -53,6 +63,8 @@ class Write extends Component{
                 time : time,
                 sit : sit,
                 introduce : introduce,
+                latitude : latitude,
+                longitude : longitude,
             };
             const res = await axios('/add/store', {
                 method : 'POST',
@@ -72,6 +84,8 @@ class Write extends Component{
                 time : time,
                 sit : sit,
                 introduce : introduce,
+                latitude : latitude,
+                longitude : longitude,
                 storeid : this.props.match.params.data
             };
             const res = await axios('/update/store', {
@@ -96,7 +110,7 @@ class Write extends Component{
     }
     
     render() {
-        const { storeName, address, number, time, sit, introduce} = this.props;
+        const { storeName, address, number, time, sit, introduce, latitude, longitude} = this.props;
         return(
             <div>
                 <div className="write-box">
@@ -149,46 +163,27 @@ class Write extends Component{
                             <div className="info-input">
                                 <input type="content" name="introduce" maxLength={300} placeholder="가게소개" defaultValue={introduce}></input>
                             </div>
+                        </div>
+                        <div className="write-info">
+                            <div className="info-name">
+                                <label>위도</label>
+                            </div> 
+                            <div className="info-input">
+                                <input type="content" name="latitude" maxLength={300} placeholder="위도 입력" defaultValue={latitude}></input>
                             </div>
+                        </div>
+                        <div className="write-info">
+                            <div className="info-name">
+                                <label>경도</label>
+                            </div> 
+                            <div className="info-input">
+                                <input type="content" name="longitude" maxLength={300} placeholder="경도 입력" defaultValue={longitude}></input>
+                            </div>
+                        </div>
                         <div className="write-info-submit">
                             <input type="button" value="등록하기" onClick={() => this._submitStore()}></input>
                         </div>
-                        {/* <table>
-                            <tbody>
-                                <tr>
-                                    <td>가게명 : </td>
-                                    <td><input type="text" name="storeName" placeholder="가게명" defaultValue={storeName}></input></td>
-                                </tr>
-                                <tr>
-                                    <td>주소 : </td>
-                                    <td><input type="text" name="address" placeholder="주소" defaultValue={address}></input></td>
-                                </tr>
-                                <tr>
-                                    <td>번호 : </td>
-                                    <td><input type="text" name="number" placeholder="번호" defaultValue={number}></input></td>
-                                </tr>
-                                <tr>
-                                    <td>영업시간 : </td>
-                                    <td><input type="text" name="time" placeholder="영업시간" defaultValue={time}></input></td>
-                                </tr>
-                                <tr>
-                                    <td>총 좌석 : </td>
-                                    <td><input type="text" name="sit" placeholder="총 좌석" defaultValue={sit}></input></td>
-                                </tr>
-                                <tr>
-                                    <td>가게 소개 : </td>
-                                    <td><input type="content" name="introduce" placeholder="가게명" defaultValue={introduce}></input></td>
-                                </tr>
-                                <tr>
-                                    <td>사진 추가 :</td>
-                                    <td><input type="file" name="image" placeholder="이미지" ></input></td>
-                                </tr>
-                                
-                                <tr>
-                                    <td><input type="button" value="등록하기" onClick={() => this._submitStore()}></input></td>
-                                </tr>
-                            </tbody>
-                        </table> */}
+                        
                     </form>
                 </div>
             </div>

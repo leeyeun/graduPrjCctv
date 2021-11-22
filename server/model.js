@@ -60,6 +60,8 @@ module.exports = {
                 view_cnt : 0,
                 likes : 0,
                 curHead : 0,
+                latitude : body.latitude,
+                longitude : body.longitude
 
             }).then(data => {
                 callback(true)
@@ -168,7 +170,9 @@ module.exports = {
                 time : body.time,
                 sit : body.sit,
                 introduce : body.introduce,
-                image : body.image
+                image : body.image,
+                latitude : body.latitude,
+                longitude : body.longitude
             }, {
                 where : { storeid : body.storeid }
             })
