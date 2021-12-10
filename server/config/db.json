@@ -2,8 +2,8 @@
     "development" : {
         "host" : "127.0.0.1",
         "username" : "root",
-        "password" : "@dldhfsu0109",
-        "port" : "3305",
+        "password" : "1234",
+        "port" : "3306",
         "database" : "CCTV_PRJ",
         "dialect" : "mysql"
     },

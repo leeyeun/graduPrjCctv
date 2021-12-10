@@ -139,10 +139,9 @@ module.exports = {
                 throw err;
             })
         },
+        
         store_address :(body, callback) =>{
-            Store.findAll({
-                where : { address : body.address }
-            })
+            Store.findAll()
             .then(result => {
                 callback(result);
             })

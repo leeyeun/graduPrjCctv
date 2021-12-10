@@ -46,7 +46,7 @@ class Main extends Component {
                         <ul className="header_center">
                         </ul>
                         <ul className="header_right">
-                            {login && admin ==='Y' && user_ip ==="192.168.55.244"
+                            {login && admin ==='Y'
                             ?   <div><li><Link to="/write">글쓰기</Link></li></div>
                              : null
                             }
